@@ -34,8 +34,6 @@ app.use(session({
 }));
 
 
-
-
 mongoose.connect('mongodb://localhost:27017/fantasy-baseball', (err) => {
     if (err) throw (err)
 
