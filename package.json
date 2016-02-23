@@ -1,0 +1,44 @@
+{
+  "name": "fantasy-baseball",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "serve": "nodemon server.js"
+  },
+  "eslintConfig": {
+    "env": {
+      "node": true,
+      "es6": true
+    },
+    "extends": "eslint:recommended",
+    "rules": {
+      "no-console": 0
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/micahp0506/fantasy-baseball.git"
+  },
+  "author": "Micah Wells <micahp0506@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/micahp0506/fantasy-baseball/issues"
+  },
+  "homepage": "https://github.com/micahp0506/fantasy-baseball#readme",
+  "dependencies": {
+    "bcrypt": "^0.8.5",
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "jade": "^1.11.0",
+    "mongoose": "^4.4.4",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.9.0"
+  }
+}
