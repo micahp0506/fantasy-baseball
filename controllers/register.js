@@ -1,7 +1,7 @@
 'use strict';
 
 
-const Player = require('../models/login');
+const User = require('../models/login');
 
 
 module.exports.index = (req, res) => {
@@ -10,18 +10,13 @@ module.exports.index = (req, res) => {
 
 module.exports.post = (req, res) => {
     if (req.body.password === req.body.verify) {
-        console.log("0");
-        Player.findOne({email: req.body.email}, (err, user) => {
-            console.log("1");
+        User.findOne({email: req.body.email}, (err, user) => {
             if (err) throw (err);
 
             if (user) {
-                console.log("2");
                 res.redirect('/login');
             } else {
-                console.log("2.5");
-                Player.create(req.body, (err) => {
-                    console.log("3");
+                User.create(req.body, (err) => {
                     if (err) throw (err);
 
                     res.redirect('/login');

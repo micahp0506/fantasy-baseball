@@ -18,11 +18,10 @@ UserSchema.methods.authenticate = function (password, callback) {
 UserSchema.pre('save', function(next) {
     bcrypt.hash(this.password, BCRYPT_DIFFICULTY, (err, hash) => {
         if (err) throw (err);
-        console.log("5");
+
         this.password = hash;
-        console.log("6");
         next();
     });
 });
 
-module.exports = mongoose.model('Player', UserSchema);
+module.exports = mongoose.model('User', UserSchema);
