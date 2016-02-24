@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const RedisStore = require('connect-redis')(session);
 const path = require('path');
+const passport = require('passport');
 const index = require('./routes/');
 
 const app = express();
@@ -19,7 +20,7 @@ app.set('view engine', 'jade');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
-app.use(index);
+
 
 app.use(require('node-sass-middleware')({
   src: path.join(__dirname, 'public'),
@@ -34,6 +35,9 @@ app.use(session({
   store: new RedisStore()
 }));
 
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(index);
 
 mongoose.connect('mongodb://localhost:27017/fantasy-baseball', (err) => {
     if (err) throw (err)

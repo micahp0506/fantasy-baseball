@@ -12,10 +12,12 @@ const UserSchema = mongoose.Schema({
 });
 
 UserSchema.methods.authenticate = function (password, callback) {
+    console.log("model1");
     bcrypt.compare(password, this.password, callback);
 };
 
 UserSchema.pre('save', function(next) {
+    console.log("model2");
     bcrypt.hash(this.password, BCRYPT_DIFFICULTY, (err, hash) => {
         if (err) throw (err);
 
